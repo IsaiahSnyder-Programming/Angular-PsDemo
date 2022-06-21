@@ -21,6 +21,24 @@
             {{ singleModel }}
     </button>
 
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+        <input type="text" placeholder="Start Date" class="form-control"
+        [(ngModel)]="startDate" name="startDate" id="startDate" bsDaterangepicker>
+    </div>
+
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <timepicker [(ngModel)]="startTime" name="startTime" id="startTime"></timepicker>
+    </div>
+
+    <div class="form-group">
+      User Rating
+      <rating [(ngModel)]="userRating" [max]="maxRating"
+        name="userRating" id="userRating"
+        [titles]="['one','two','three']"></rating>
+    </div>
+
     <div class="form-check form-group">
       <input type="checkbox" class="form-check-input" id="emailOffers" name="emailOffers" [(ngModel)]="userSettings.emailOffers" >
       <label for="emailOffers" class="form-check-label">

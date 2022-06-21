@@ -1,3 +1,4 @@
+import { Time } from '@angular/common';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -21,6 +22,10 @@ export class UserSettingsFormComponent implements OnInit {
 
   singleModel = "On";
 
+  startDate: Date;
+  startTime: Date;
+  userRating: 0;
+  maxRating: 5;
   userSettings : UserSettings = { ...this.originalUserSettings }
   postError = false;
   postErrorMessage = '';
@@ -30,6 +35,9 @@ export class UserSettingsFormComponent implements OnInit {
 
   ngOnInit() {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+
+    this.startDate = new Date();
+    this.startTime = new Date();
   }
 
   onBlur(field: NgModel) {
